@@ -2,7 +2,6 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 
--- Limpar highlights ao salvar
 autocmd({ 'TextYankPost' }, {
   group = augroup('YankHighlight', { clear = true }),
   callback = function()
@@ -10,7 +9,6 @@ autocmd({ 'TextYankPost' }, {
   end,
 })
 
--- Formatar ao salvar com LSP
 autocmd('BufWritePre', {
   group = augroup('FormatOnSave', { clear = true }),
   callback = function()
@@ -18,7 +16,6 @@ autocmd('BufWritePre', {
   end,
 })
 
--- Manter cursor no último lugar ao reabrir arquivo
 autocmd('BufReadPost', {
   group = augroup('RestoreCursor', { clear = true }),
   callback = function()
